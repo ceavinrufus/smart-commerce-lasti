@@ -19,9 +19,11 @@ function Navbar() {
           </a>
         </div>
         <div className="flex gap-12 items-center">
-          <a href="/products" className="font-semibold text-black">
-            Products
-          </a>
+          {role === "customer" && (
+            <a href="/products" className="font-semibold text-black">
+              Products
+            </a>
+          )}
           {role === "admin" && (
             <a href="/financial" className="font-semibold text-black">
               Financial Recap
