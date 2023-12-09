@@ -1,6 +1,13 @@
 import React from 'react';
 
-const CatalogPage = ({ data }) => {
+const CatalogPage = () => {
+  // Mock data for testing the component's layout
+  const mockData = [
+    { id: 1, name: 'Product 1', price: 100, stok: 10 },
+    { id: 2, name: 'Product 2', price: 150, stok: 5 },
+    // Add more mock data as needed
+  ];
+
   return (
     <div className="font-sans text-gray-900 antialiased w-full h-full bg-cover px-9 py-5" style={{backgroundImage: "url('./images/bg.svg')"}}>
       <div className="flex items-center justify-between gap-12 mb-6">
@@ -19,9 +26,9 @@ const CatalogPage = ({ data }) => {
           <a href="/" className=""><img src="/images/katalog.svg" className="cursor-pointer" alt="Catalog" /></a>
           <a href="/history" className=""><img src="/images/history.svg" className="cursor-pointer" alt="History" /></a>
         </div>
-        {data.length !== 0 ? (
+        {mockData.length !== 0 ? (
           <div className="grid grid-cols-6 gap-x-6 gap-y-0">
-            {data.map((katalog) => (
+            {mockData.map((katalog) => (
               <a href={`/detail/${katalog.id}`} key={katalog.id} className="w-36 h-36 bg-[#9C9C9C] rounded-xl hover:scale-105 cursor-pointer flex flex-col justify-end px-3 py-2">
                 <div className="flex justify-between">
                   <div className="flex flex-col">
