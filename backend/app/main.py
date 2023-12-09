@@ -1,16 +1,8 @@
 from fastapi import FastAPI, HTTPException
 import json
-from pydantic import BaseModel
-import datetime
+from app.models.transaction import Transaction
 
-class Transaction(BaseModel):
-    type: str
-    transaction_from: str
-    description: str
-    amount: int
-    date: datetime.date
-
-json_filename="../data/transaction.json"
+json_filename="data/transaction.json"
 
 with open(json_filename,"r") as read_file:
 	data = json.load(read_file)
@@ -35,7 +27,7 @@ async def financial_recap():
 
     return {"total_incoming" : total_incoming, "total_outgoing" : total_outgoing, "transactions" : data["transactions"]}
 
-@app.post('/add_transaction')
+@app.post('/transaction')
 async def add_transaction(transaction: Transaction):
     new_id = len(data["transaction"]) + 1
 
