@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const CatalogPage = () => {
   // Mock data for testing the component's layout
@@ -23,22 +25,22 @@ const CatalogPage = () => {
       </div>
       <div className="flex gap-12">
         <div className="flex flex-col items-center bg-stone-600 h-[800px] rounded-2xl py-4">
-          <a href="/" className=""><img src="/images/katalog.svg" className="cursor-pointer" alt="Catalog" /></a>
-          <a href="/history" className=""><img src="/images/history.svg" className="cursor-pointer" alt="History" /></a>
+          <Link to="/" className=""><img src="/images/katalog.svg" className="cursor-pointer" alt="Catalog" /></Link>
+          <Link to="/history" className=""><img src="/images/history.svg" className="cursor-pointer" alt="History" /></Link>
         </div>
         {mockData.length !== 0 ? (
           <div className="grid grid-cols-6 gap-x-6 gap-y-0">
             {mockData.map((katalog) => (
-              <a href={`/detail/${katalog.id}`} key={katalog.id} className="w-36 h-36 bg-[#9C9C9C] rounded-xl hover:scale-105 cursor-pointer flex flex-col justify-end px-3 py-2">
+            <Link to={`/detail/${katalog.id}`} key={katalog.id} className="w-36 h-36 bg-[#9C9C9C] rounded-xl hover:scale-105 cursor-pointer flex flex-col justify-end px-3 py-2">
                 <div className="flex justify-between">
-                  <div className="flex flex-col">
-                    <p className="font-extrabold">{katalog.name}</p>
-                    <p>Rp {katalog.price}</p>
-                  </div>
-                  <p className="font-extrabold">{katalog.stok}</p>
+                    <div className="flex flex-col">
+                        <p className="font-extrabold">{katalog.name}</p>
+                        <p>Rp {katalog.price}</p>
+                    </div>
+                    <p className="font-extrabold">{katalog.stok}</p>
                 </div>
-              </a>
-            ))}
+            </Link>
+        ))}
           </div>
         ) : (
           <div className="flex w-full justify-center items-center">

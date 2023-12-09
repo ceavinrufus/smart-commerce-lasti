@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 import CatalogPage from './pages/katalog';
+import DetailBarangPage from './pages/detail';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      < CatalogPage/>
-    </div>
+    <Router>
+      <div className="App">
+        <DetailBarangPage />
+      </div>
+    </Router>
   );
 }
 
