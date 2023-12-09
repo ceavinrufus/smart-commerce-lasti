@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family:'Drunk Wide';
+  src: url('/public/font/Druk-Wide-Bold.ttf');
+}
+@font-face {
+  font-family:'Inter';
+  src: url('/public/font/Inter-Medium.ttf');
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,4 +27,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 20% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
