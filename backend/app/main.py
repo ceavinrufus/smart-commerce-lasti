@@ -4,7 +4,6 @@ from pydantic import BaseModel
 import datetime
 
 class Transaction(BaseModel):
-    id: int
     type: str
     transaction_from: str
     description: str
@@ -44,7 +43,7 @@ async def add_transaction(transaction: Transaction):
         "id": new_id,
         "amount": transaction.amount,
         "type": transaction.type,
-        "from": transaction.from_,
+        "from": transaction.transaction_from,
         "description": transaction.description,
         "date": str(transaction.date),
     }
