@@ -1,0 +1,32 @@
+{
+    "transaction" : [
+        {
+          "id": 1,
+          "amount": 7500000,
+          "type": "incoming",
+          "from": "customer",
+          "description": "Payment for goods"
+        },
+        {
+          "id": 2,
+          "amount": 3010000,
+          "type": "outgoing",
+          "from": "supplier",
+          "description": "Purchase of raw materials"
+        },
+        {
+          "id": 3,
+          "amount": 15000000,
+          "type": "incoming",
+          "from": "customer",
+          "description": "Service fee payment"
+        },
+        {
+          "id": 4,
+          "amount": 4522500,
+          "type": "outgoing",
+          "from": "vendor",
+          "description": "Equipment maintenance"
+        }
+      ]
+}
