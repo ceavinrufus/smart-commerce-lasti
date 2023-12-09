@@ -5,37 +5,31 @@ import CatalogPage from "../pages/CatalogPage";
 import DetailBarangPage from "../pages/DetailBarangPage";
 import FinancialDashboardPage from "../pages/FinancialDashboardPage";
 import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
 
-// const ProtectedRoute = () => {
-//   const isAuthenticated = () => {
-//     const accessToken = sessionStorage.getItem("accessToken");
-//     if (accessToken) {
-//       try {
-//         const decodedToken = jwtDecode(accessToken);
-//         const currentTime = Date.now() / 1000;
-
-//         return decodedToken.exp > currentTime;
-//       } catch (error) {
-//         console.error("Error decoding access token:", error);
-//         return false;
-//       }
-//     }
-
-//     return false;
-//   };
-//   return isAuthenticated() ? <Outlet /> : <Navigate to="/auth" replace />;
-// };
+const ProtectedRoute = ({ role }) => {
+  const isAuthenticated = () => {
+    const accessToken = localStorage.getItem("loginAs");
+    if (accessToken) {
+      return accessToken === role;
+    } else {
+      return false;
+    }
+  };
+  return isAuthenticated() ? <Outlet /> : <Navigate to="/" replace />;
+};
 
 const RoutesConfig = () => {
   return (
     <Routes>
-      {/* <Route element={<ProtectedRoute />}> */}
       <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/products" element={<CatalogPage />} />
       <Route path="/products/details/:id" element={<DetailBarangPage />} />
-      <Route path="/financial" element={<FinancialDashboardPage />} />
-      {/* </Route> */}
-      {/* <Route path="/auth" element={<AuthPage />} /> */}
+      <Route element={<ProtectedRoute role={"admin"} />}>
+        <Route path="/financial" element={<FinancialDashboardPage />} />
+      </Route>
+      <Route path="/*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
