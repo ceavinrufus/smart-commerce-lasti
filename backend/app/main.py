@@ -11,7 +11,7 @@ class Transaction(BaseModel):
     amount: int
     date: datetime.date
 
-json_filename="transactions.json"
+json_filename="../data/transaction.json"
 
 with open(json_filename,"r") as read_file:
 	data = json.load(read_file)
@@ -35,3 +35,23 @@ async def financial_recap():
              total_outgoing += i["amount"]
 
     return {"total_incoming" : total_incoming, "total_outgoing" : total_outgoing, "transactions" : data["transactions"]}
+
+@app.post('/add_transaction')
+async def add_transaction(transaction: Transaction):
+    new_id = len(data["transaction"]) + 1
+
+    new_transaction = {
+        "id": new_id,
+        "amount": transaction.amount,
+        "type": transaction.type,
+        "from": transaction.from_,
+        "description": transaction.description,
+        "date": str(transaction.date),
+    }
+
+    data["transaction"].append(new_transaction)
+
+    with open(json_filename, "w") as write_file:
+        json.dump(data, write_file, indent=2)
+
+    return {"message": "Transaction added successfully", "transaction": new_transaction}
