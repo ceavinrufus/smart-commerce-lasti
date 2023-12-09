@@ -1,15 +1,13 @@
-// App.js
+import logo from './logo.svg';
+import './App.css';
 import CatalogPage from './pages/katalog';
-import DetailBarangPage from './pages/detail';
-import { BrowserRouter as Router } from 'react-router-dom';
+import FinancialDashboard from './pages/manajemen-keuangan';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <DetailBarangPage />
-      </div>
-    </Router>
+    <div className="App">
+      < FinancialDashboard/>
+    </div>
   );
 }
 
