@@ -5,28 +5,32 @@
           "amount": 7500000,
           "type": "incoming",
           "from": "customer",
-          "description": "Payment for goods"
+          "description": "Payment for goods",
+          "date": "2023-12-09"
         },
         {
           "id": 2,
           "amount": 3010000,
           "type": "outgoing",
           "from": "supplier",
-          "description": "Purchase of raw materials"
+          "description": "Purchase of raw materials",
+          "date": "2023-12-10"
         },
         {
           "id": 3,
           "amount": 15000000,
           "type": "incoming",
           "from": "customer",
-          "description": "Service fee payment"
+          "description": "Service fee payment",
+          "date": "2023-12-11"
         },
         {
           "id": 4,
           "amount": 4522500,
           "type": "outgoing",
           "from": "vendor",
-          "description": "Equipment maintenance"
+          "description": "Equipment maintenance",
+          "date": "2023-12-12"
         }
-      ]
+      ]      
 }
